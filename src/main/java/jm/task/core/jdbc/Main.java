@@ -4,6 +4,8 @@ import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import jm.task.core.jdbc.util.Util;
+import org.hibernate.SessionFactory;
 
 import java.sql.Connection;
 import java.sql.Driver;
@@ -14,7 +16,9 @@ public class Main {
     private static final UserService userService = new UserServiceImpl();
 
     public static void main(String[] args) {
+
         userService.createUsersTable();
+
 
         User user1 = new User("Пётр", "Петров", (byte) 20);
         userService.saveUser(user1.getName(), user1.getLastName(), user1.getAge());
